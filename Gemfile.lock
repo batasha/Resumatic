@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     backbone-rails (1.0.0)
       rails (>= 3.0.0)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     coderay (1.0.9)
@@ -58,6 +59,10 @@ GEM
     mime-types (1.24)
     multi_json (1.7.9)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     pry (0.9.12.2-x86-mingw32)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -90,6 +95,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rename (1.0.0)
+      rails (>= 3.0.0)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -124,6 +131,7 @@ DEPENDENCIES
   jquery-rails
   pry-rails
   rails (= 3.2.13)
+  rename
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

@@ -25,24 +25,24 @@ resume.educations.create([{ institution: 'App Academy',
                             location: 'New York, NY',
                             time: 'Summer 2013',
                             edu_points: [
-                              { point_text: 'Intensive Ruby on Rails and JavaScript Web Development Course' }
+                              { description: 'Intensive Ruby on Rails and JavaScript Web Development Course' }
                             ]
                           },
                           { institution: 'CUNY - Brooklyn College',
                             location: 'Brooklyn, NY', 
                             time: 'Fall 2009 - Spring 2011',
                             edu_points: [
-                              { point_text: 'Major in Economics, Concentration in Economic Analysis, Minor in Mathematics' },
-                              { point_text: 'GPA: 3.957, 4.00 in Major' },
-                              { point_text: 'After graduation, began pursuing additional BS in Computational Mathematics' }
+                              { description: 'Major in Economics, Concentration in Economic Analysis, Minor in Mathematics' },
+                              { description: 'GPA: 3.957, 4.00 in Major' },
+                              { description: 'After graduation, began pursuing additional BS in Computational Mathematics' }
                             ]
                           },
                           { institution: 'University of Utah - WMI, NOLS',
                             location: 'Lander, WY',
                             time: '2006 - 2007',
                             edu_points: [
-                              { point_text: 'EMT, NREMT, WEMT' },
-                              { point_text: 'GPA: 3.8, 4.00 in WMI' }
+                              { description: 'EMT, NREMT, WEMT' },
+                              { description: 'GPA: 3.8, 4.00 in WMI' }
                             ] 
                           }
                         ])

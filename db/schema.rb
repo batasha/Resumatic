@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822211016) do
+ActiveRecord::Schema.define(:version => 20130822224512) do
 
   create_table "edu_points", :force => true do |t|
     t.integer  "education_id"
-    t.text     "point_text"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.text     "description"
   end
 
   add_index "edu_points", ["education_id"], :name => "index_edu_points_on_education_id"

@@ -6,7 +6,7 @@
 # end
 
 class EduPoint < ActiveRecord::Base
-  attr_accessible :education_id, :point_text
+  attr_accessible :education_id, :description
 
   belongs_to :education
   has_one :resume, through: :education

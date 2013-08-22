@@ -9,7 +9,7 @@
   # end
 
 class Experience < ActiveRecord::Base
-  attr_accessible :resume_id, :title, :company, :location, :time
+  attr_accessible :resume_id, :title, :company, :location, :time, :exp_points
 
   belongs_to :resume
   has_one :user, through: :resume

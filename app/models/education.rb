@@ -8,7 +8,7 @@
   # end
 
 class Education < ActiveRecord::Base
-  attr_accessible :resume_id, :institution, :location, :time
+  attr_accessible :resume_id, :institution, :location, :time, :edu_points
 
   belongs_to :resume
   has_one :user, through: :resume

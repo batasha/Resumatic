@@ -8,7 +8,7 @@
   # end
 
 class Project < ActiveRecord::Base
-  attr_accessible :resume_id, :title, :subtitle, :link
+  attr_accessible :resume_id, :title, :subtitle, :link, :properties
 
   belongs_to :resume
   has_one :user, through: :resume

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title><%= "#{@user.fname} #{@user.lname}" %> | Full Stack Web Developer</title>
+  <title><%= "#{@user.fname} #{@user.lname}" %> | <%= @resume.title %></title>
 <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700,600italic'
   rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="print.css" media="all">
@@ -10,16 +10,16 @@
 <section class="page-box">
 
   <header class="basic-info group">
-    <h1 class="name">Connor Savage</h1>
+    <h1 class="name"><%= "#{@user.fname} #{@user.lname}" %></h1>
     <ul class="contact">
-      <li>connor.savage@gmail.com</li>
-      <li>github.com/CGDS</li>
-      <li>206.303.7200</li>
+      <li><%= @resume.email %></li>
+      <li><%= @resume.title %></li>
+      <li><%= @resume.phone %></li>
     <ul>
   </header>
 
   <section class="headline group">
-    <h3>Headline</h3> <p>Full Stack Web Developer seeking Junior Developer position</p>
+    <h3>Headline</h3> <p><%= @resume.headline %></p>
   </section>
 
   <section class="education group">
@@ -27,40 +27,20 @@
 
     <ul class="educational-institutions">
 
-      <li class="institution">
-        <header class="group">
-          <h4>App Academy,</h4><h6> New York, NY</h6> <h5>Summer 2013</h5>
-        </header>
-        <ul class="education-list">
-          <li>Intensive Ruby on Rails and JavaScript Web Development Course</li>
-        </ul>
+      <% for edu_item in @resume.educations %>
+        <li class="institution">
+          <header class="group">
+            <h4><%= edu_item.institution %></h4><h6> <%= edu_item.location %></h6> <h5><%= edu_item.time %></h5>
+          </header>
+          
+          <ul class="education-list">
+            <% for edu_point in edu_item.edu_points %>
+              <li><%= edu_point.description %></li>
+            <% end %>
+          </ul>
+        </li>
 
-      </li>
-
-      <li class="institution">
-        <header class="group">
-          <h4>CUNY - Brooklyn College,</h4><h6> Brooklyn, NY</h6>
-          <h5>Fall 2009 - Spring 2011</h5>
-        </header>
-        <h4> <em>Bachelor of Arts</em> </h4>
-        <ul class="education-list">
-          <li>Major in Economics, Concentration in Economic Analysis, Minor in Mathematics</li>
-          <li>GPA: 3.957, 4.00 in Major </li>
-          <li>After graduation, began pursuing additional BS in Computational Mathematics</li>
-        </ul>
-      </li>
-
-      <li class="institution">
-        <header class="group">
-          <h4>University of Utah - WMI, NOLS,</h4><h6> Lander, WY</h6> <h5>2006 - 2007</h5>
-        </header>
-        <h4> <em>Emergency Medical Technician</em> </h4>
-        <ul class="education-list">
-          <li>EMT, NREMT, WEMT</li>
-          <li>GPA: 3.8, 4.00 in WMI </li>
-        </ul>
-      </li>
-
+      <% end %>
     </ul>
   </section>
 
@@ -120,135 +100,46 @@
     <h3>Selected Projects</h3>
 
     <ul class="project-list">
-      <li class="project">
-      <header class="group">
-        <h4><strong>Says Shoot:</strong> <em>N-Weapon Rock Paper Scissors</em></h4>
-        <h5>says-shoot.herokuapp.com/</h5>
-      </header>
-        <ul class="properties-list">
-          <li>
-            Users may be authenticated by Devise, or log in via FaceBook and OmniAuth
-          </li>
-          <li>
-            Users may create their own n-weapon games, uploading images of the 'weapons', or
-            dragging and dropping previously used weapons utilizing jQueryUI
-          </li>
-          <li>
-            Users may be authenticated by Devise, or log in via FaceBook and OmniAuth
-          </li>
-        </ul>
-      </li>
 
-      <li class="project">
-      <header class="group">
-        <h4>
-          <strong>I, Churchill:</strong>
-          <em>Social Network for robot Winston Churchills </em>
-        </h4>
-        <h5>github.com/CGDS/I-Churchill</h5>
-      </header>
-        <ul class="properties-list">
-          <li>
-            A FaceBook like clone, including posts, messages, photos, albums, simple
-            search, and a newsfeed
-          </li>
-          <li>
-            Newsfeed items utilize polymorphic associations and after create hooks
-          </li>
-          <li>
-            Users utilize the Devise authentication solution.
-          </li>
-        </ul>
-      </li>
+      <% for project_item in @resume.projects %>
+        <li class="project">
+        <header class="group">
+          <h4><strong><%= project_item.title %></strong> <em><%= project_item.subtitle %></em></h4>
+          <h5><%= project_item.link %></h5>
+        </header>
 
-      <li class="project">
-      <header class="group">
-        <h4><strong>Chalet Magazine:</strong> <em>Magazine Web Presence</em></h4>
-        <h5>coming soon</h5>
-      </header>
-        <ul class="properties-list">
-          <li>
-            project still under active development
-          </li>
-          <li>
-            Designed to use Unicorn to run multiple workers in one Heroku Web Dyno and New Relic
-            to provide availability monitoring and prevent spin up delay
-          </li>
-        </ul>
-      </li>
+          <ul class="properties-list">
+            <% for property in project_item.properties %>
+              <li><%= property.description %></li>
+            <% end %>
+          </ul>        
+        </li>
 
-
+      <% end %>
     </ul>
   </section>
 
   <section class="selected-experience group">
     <h3>Selected Experience</h3>
     <ul class="work-experiences">
-      <li class="experience">
-      <header class="group">
-        <h4>Technical Consultant, <em>Blue Beard</em></h4><h6> New York, NY</h6>
-        <h5>Spring 2012 - Spring 2013</h5>
-      </header>
-        <ul class="experience-list">
-          <li>
-            Created solutions for the technical challenges of film production
-          </li>
-          <li>
-            Oversaw construction of specialized equipment, managed complex set construction
-          </li>
-        </ul>
-      </li>
 
-      <li class="experience">
-      <header class="group">
-        <h4>College Associate, <em>CUNY - Brooklyn College</em></h4><h6> Brooklyn, NY</h6>
-        <h5>Winter 2010 - Spring 2012</h5>
-      </header>
-        <ul class="experience-list">
-          <li>
-             Tutored students from 6 courses: Advanced Business Statistics, Microeconomics,
-             Macroeconomics, Mathematical Methods in Economics, Corporate Finance and Advanced
-             Programming Techniques (C/C++)
-          </li>
-          <li>
-            Worked closely with faculty to create study materials to improve
-            learning outcomes
-          </li>
-          <li>
-            Administered discussion boards to facilitate an alternative learning environment
-          </li>
-        </ul>
-      </li>
+      <% for exp_item in @resume.experiences %>
+        <li class="experience">
+        <header class="group">
+          <h4><%= exp_item.title %>, <em><%= exp_item.company %></em></h4><h6> <%= exp_item.location %></h6>
+          <h5><%= exp_item.time %></h5>
+        </header>
 
-      <li class="experience">
-      <header class="group">
-        <h4>Trading &amp Quantitative Intern, <em>SMB Capital</em></h4><h6> New York, NY</h6>
-        <h5>Summer, Fall 2010</h5>
-      </header>
-        <ul class="experience-list">
-          <li>
-            Completed trader training program with incoming group of 18 traders, and
-            excelled in simulated trading for the duration of the internship
-          </li>
-          <li>
-            Wrote implied volatility analysis and surface smoothing program in conjunction with
-            head trader utilizing Newton-Raphson and spline interpolation techniques
-          </li>
-          <li>
-            Wrote, maintained, &amp operated, 8 new statistical filters for proprietary market
-            scanning software
-          </li>
-          <li>
-            Recruited, hired, and managed an outsourced team of 5 independent contractors and 3
-            additional interns to implement new training software system.
-          </li>
-        </ul>
-      </li>
+          <ul class="experience-list">
+            <% for exp_point in exp_item.exp_points %>
+              <li><%= exp_point.description %></li>
+            <% end %>
+          </ul>
+        </li>
 
+      <% end %>
     </ul>
   </section>
-
-
 
 
 </section>

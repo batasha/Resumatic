@@ -1,4 +1,4 @@
-class ResumeController < ApplicationController
+class ResumesController < ApplicationController
   def show
     @resume = Resume.find(params[:id])
     @user = @resume.user
